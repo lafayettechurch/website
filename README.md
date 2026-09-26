@@ -30,6 +30,11 @@ The site works before Sanity is set up: it reads the seed files in `content/*.js
 
 Text in `[square brackets]` renders as a yellow placeholder tag on the page, and the Studio shows a warning on any field that still has one. `npm run placeholders` lists all of them.
 
+## Design notes
+
+- **Button icons.** A button gets an icon when it does something in another medium: play a video (`circle-play`), start an email (`mail`), place a call (`phone`), open a map (`map-pin`), or give (`heart-handshake`, only on "Give online"). Buttons that just go to another page of the site ("Plan your visit", "What to expect", "Ways to give") stay plain. Icons are always paired with a text label.
+- The full rules and tokens are in `reference/design_handoff_lafayette_website/` (see its README and each component's `.prompt.md`).
+
 ## Setting up Sanity (one time)
 
 Use a **church-owned** email for the account, and add a second admin, so the project never depends on one person.
