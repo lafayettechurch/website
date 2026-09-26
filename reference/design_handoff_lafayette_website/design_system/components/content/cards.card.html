@@ -1,0 +1,16 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Cards & eyebrow" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0}*{box-sizing:border-box}.lbl{font-family:var(--font-mono);font-size:11px;color:var(--lcc-ink-3);margin-bottom:8px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, Card, Eyebrow, SectionBand, SiteHeader, SiteFooter, FacetMotif, Icon } = window.LafayetteChurchDesignSystem_2b98d9;
+function Demo(){return (<div style={{padding:20,display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
+<Card padding={22} eyebrow="Sundays at 10 AM" title="New here? We'd love to meet you." action={<Button variant="primary" size="sm">Plan your visit</Button>}>Come as you are — there's no dress code.</Card>
+<Card padding={22} variant="deep" eyebrow="Watch online" title="Not ready to visit in person?" action={<Button variant="outline-on-dark" size="sm">Watch live</Button>}>Join us live on YouTube at 10 AM.</Card>
+<Card padding={22} variant="warm" eyebrow="Give" title="Thank you for supporting the mission." action={<Button size="sm">Give online</Button>}>No expectation to give if you're visiting.</Card>
+</div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

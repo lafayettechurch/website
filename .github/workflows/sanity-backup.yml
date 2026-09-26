@@ -1,0 +1,35 @@
+# Nightly backup of all website content and photos from Sanity.
+# Sanity's free plan keeps only a few days of history, so this keeps 90 days of snapshots.
+# To restore one: download the artifact from the Actions tab, then run
+#   npx sanity dataset import lafayette-content.tar.gz production --replace
+#
+# Setup: in GitHub → Settings → Secrets and variables → Actions, add
+#   SANITY_AUTH_TOKEN              (a "Viewer" token from sanity.io/manage → API → Tokens)
+#   NEXT_PUBLIC_SANITY_PROJECT_ID  (the project ID)
+name: Back up website content
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # every day, ~3 AM in St. Louis
+  workflow_dispatch: {}
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Export content
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+        run: npx sanity dataset export production lafayette-content.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lafayette-content-${{ github.run_number }}
+          path: lafayette-content.tar.gz
+          retention-days: 90

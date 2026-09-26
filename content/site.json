@@ -1,0 +1,38 @@
+{
+  "name": "Lafayette Church of Christ",
+  "tagline": "A Jesus-community of life, light, and love.",
+  "address": {
+    "street": "115 New Ballwin Road",
+    "city": "Ballwin, MO 63021"
+  },
+  "sunday": {
+    "title": "Sundays at 10 AM",
+    "worship": "Worship",
+    "classes": "Bible classes for all ages at 9 AM"
+  },
+  "midweek": {
+    "title": "Wednesdays at 7 PM",
+    "detail": "Bible study"
+  },
+  "stream": {
+    "start": "09:00",
+    "end": "11:45"
+  },
+  "office": {
+    "email": "office.lafayettechurch@gmail.com",
+    "phone": "636-391-6697",
+    "hours": "[days and times]"
+  },
+  "links": {
+    "facebook": "https://www.facebook.com/lafayettechurchstl/",
+    "instagram": "https://www.instagram.com/lafayettechurch/",
+    "youtube": "https://youtube.com/@lafayettechurch",
+    "live": "https://www.youtube.com/@lafayettechurch/live",
+    "playlist": "https://youtube.com/playlist?list=PLnjGU3khFn4MOEdSk2JMQ4tOITYXWcBDE",
+    "breeze": ""
+  },
+  "footer": {
+    "times": "Sundays at 10 AM · worship\nBible classes at 9 AM\nWednesdays at 7 PM · Bible study",
+    "since": "In Ballwin since 1962"
+  }
+}

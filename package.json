@@ -1,0 +1,31 @@
+{
+  "name": "lafayettechurch-org",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "placeholders": "node --env-file-if-exists=.env.local scripts/list-placeholders.mjs",
+    "seed": "node --env-file-if-exists=.env.local scripts/seed-sanity.mjs"
+  },
+  "dependencies": {
+    "@sanity/client": "^8.7.0",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.16.0",
+    "lucide-react": "^1.48.0",
+    "next": "^16.3.6",
+    "next-sanity": "^13.3.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "resend": "^6.30.0",
+    "sanity": "^6.16.0",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

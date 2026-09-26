@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "eyebrow": "Give",
+    "title": "Thank you for supporting the work of Lafayette.",
+    "lede": "Giving is simple and secure. If you’re just visiting, please know there’s no expectation to give.",
+    "note": "Opens our secure giving page on Breeze"
+  },
+  "cards": [
+    { "eyebrow": "If you’re visiting", "title": "There’s no expectation to give", "body": "You’re our guest. Giving is for those who call Lafayette home." },
+    { "eyebrow": "Online", "title": "Safe and secure", "body": "Online gifts go through Breeze, our church’s secure giving system. You can give once or set up a recurring gift." },
+    { "eyebrow": "Other ways", "title": "In person or by mail", "body": "[Office to confirm: giving on Sundays, and the mailing address for checks.]" }
+  ]
+}

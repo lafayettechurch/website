@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "eyebrow": "Watch online · Sundays from 9 AM",
+    "title": "Not ready to visit in person? Watch this Sunday.",
+    "lede": "Join us live on YouTube for Bible class at 9 AM and worship at 10 AM, or catch up on a recent message anytime."
+  },
+  "video": {
+    "liveLabel": "Watch live now",
+    "liveSub": "Streaming through Bible class and worship",
+    "offLabel": "Watch the latest sermons",
+    "offSub": "Live Sundays from 9 AM"
+  },
+  "cards": {
+    "live": { "eyebrow": "Live", "title": "Sundays from 9 AM", "body": "The stream starts with Bible class at 9 AM and stays on through worship, usually until about 11:30. You don’t need an account to watch." },
+    "recent": { "eyebrow": "Anytime", "title": "Recent sermons", "body": "Every message is saved to our sermon playlist on YouTube, newest first." },
+    "visit": { "eyebrow": "When you’re ready", "title": "Watched online? Come in person.", "body": "We’d love to meet you. Here’s what a first Sunday looks like." }
+  }
+}

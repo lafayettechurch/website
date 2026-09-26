@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "eyebrow": "Lafayette Church of Christ · Ballwin, MO",
+    "title": "A Jesus-community of life, light, and love.",
+    "lede": "Grace and peace to you. Come as you are — you’re welcome here."
+  },
+  "newHere": {
+    "eyebrow": "New here?",
+    "title": "We’d love to meet you.",
+    "body": "Whether you’re new to Ballwin, coming back to church after a while, or just curious — you’re welcome exactly as you are. Here’s what a first Sunday looks like."
+  },
+  "watch": {
+    "eyebrow": "Watch online",
+    "title": "Not ready to visit in person? Watch this Sunday.",
+    "body": "Join us live on YouTube Sundays from 9 AM, or catch up on a recent message anytime."
+  },
+  "whoWeAre": {
+    "eyebrow": "Who we are",
+    "title": "A loving family called by God, saved by Christ and led by the Spirit.",
+    "lede": "Our mission is to be and make disciples of Jesus Christ in our families, community and world. We’ve been in Ballwin since 1962, and people come from throughout the greater St. Louis metro to worship with us."
+  },
+  "give": {
+    "eyebrow": "Give",
+    "title": "Give",
+    "body": "Thank you for supporting the work and mission of Lafayette. Giving is simple and secure — and if you’re just visiting, please know there’s no expectation to give."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Questions? Talk to a real person.",
+    "lede": "Email or call the church office and we’ll get back to you soon. If you’d like, tell us you’re planning to visit and we’ll watch for you."
+  }
+}

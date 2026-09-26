@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/shape.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/tokens/base.css">
+  <link rel="stylesheet" href="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/styles.css">
+  <script src="_ds/lafayette-church-2b98d97a-6021-4f90-a1a1-40f1046cc373/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--lcc-cream);}
+    a{color:var(--lcc-slate);transition:color 150ms cubic-bezier(.2,.7,.2,1);}
+    a:hover{color:var(--lcc-clay);}
+  </style>
+</helmet>
+<div ref="{{ rootRef }}" style="margin:0 auto;background:var(--lcc-cream);color:var(--lcc-navy);font-family:var(--font-body);min-height:100vh;">
+
+  <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SiteHeader" links="{{ navLinks }}" active="{{ activeLabel }}" compact="{{ isMobile }}" on-navigate="{{ onNav }}" on-cta="{{ go.visit }}" logo-src="assets/logo-color-trimmed.png" mark-src="assets/logo-icon.jpeg" style="position:sticky;top:0;z-index:30;" hint-size="100%,73px"></x-import>
+
+  <!-- ============ HOME ============ -->
+  <sc-if value="{{ is.home }}" hint-placeholder-val="{{ true }}">
+    <main data-screen-label="Home">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-navy);color:#fff;padding:clamp(56px,8vw,112px) var(--gutter) clamp(56px,8vw,104px);">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FacetMotif" preset="hero" opacity="{{ 0.5 }}" hint-size="0,0"></x-import>
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="on-dark" hint-size="auto,20px">Lafayette Church of Christ · Ballwin, MO</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-display-size);line-height:1.05;letter-spacing:-0.025em;margin:0 0 24px;max-width:15ch;text-wrap:balance;">A Jesus-community of life, light, and love.</h1>
+          <p style="font-family:var(--font-display);font-weight:300;font-size:var(--type-lede-size);line-height:1.35;color:var(--lcc-mist);margin:0 0 36px;max-width:30ch;">Grace and peace to you. Come as you are — you’re welcome here.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="primary" on-click="{{ go.visit }}" hint-size="160px,48px">Plan your visit</x-import>
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline-on-dark" icon="circle-play" on-click="{{ go.watch }}" hint-size="170px,48px">Watch this Sunday</x-import>
+          </div>
+        </div>
+      </section>
+
+      <section style="background:#fff;border-bottom:1px solid var(--lcc-line);padding:28px var(--gutter);">
+        <div style="max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:24px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.InfoRow" icon="clock" title="Sundays at 10 AM" sub="Worship · Bible classes for all ages at 9 AM" hint-size="100%,48px"></x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.InfoRow" icon="calendar" title="Wednesdays at 7 PM" sub="Bible study" hint-size="100%,48px"></x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.InfoRow" icon="map-pin" title="115 New Ballwin Road" sub="Ballwin, MO 63021 · Get directions" href="#/contact" hint-size="100%,48px"></x-import>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" hint-size="100%,420px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="New here?" title="We’d love to meet you." hint-size="100%,280px">
+            <p style="margin:0 0 22px;">Whether you’re new to Ballwin, coming back to church after a while, or just curious — you’re welcome exactly as you are. Here’s what a first Sunday looks like.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" on-click="{{ go.visit }}" hint-size="160px,48px">What to expect</x-import></div>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" variant="deep" eyebrow="Watch online" title="Not ready to visit in person? Watch this Sunday." hint-size="100%,280px">
+            <p style="margin:0 0 22px;">Join us live on YouTube at 10 AM, or catch up on a recent message anytime.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline-on-dark" icon="circle-play" on-click="{{ go.watch }}" hint-size="140px,48px">Watch live</x-import></div>
+          </x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="white" eyebrow="Who we are" title="A loving family called by God, saved by Christ and led by the Spirit." lede="Our mission is to be and make disciples of Jesus Christ in our families, community and world. We’ve been in Ballwin since 1962, and people come from throughout the greater St. Louis metro to worship with us." hint-size="100%,380px">
+        <div style="display:flex;flex-wrap:wrap;gap:24px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="link" on-click="{{ go.about }}" hint-size="140px,48px">What we believe</x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="link" on-click="{{ go.leadership }}" hint-size="160px,48px">Meet our leaders</x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="warm" eyebrow="Give" title="Give" hint-size="100%,300px">
+        <div style="display:flex;flex-wrap:wrap;gap:24px 32px;align-items:flex-end;justify-content:space-between;">
+          <p style="margin:0;font-size:18px;line-height:1.65;color:var(--lcc-sand-ink);max-width:56ch;flex:1 1 320px;">Thank you for supporting the work and mission of Lafayette. Giving is simple and secure — and if you’re just visiting, please know there’s no expectation to give.</p>
+          <div><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" on-click="{{ go.give }}" hint-size="140px,48px">Ways to give</x-import></div>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" eyebrow="Contact" title="Questions? Talk to a real person." lede="Email or call the church office and we’ll get back to you soon. If you’d like, tell us you’re planning to visit and we’ll watch for you." hint-size="100%,340px">
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" icon="mail" on-click="{{ ext.email }}" hint-size="170px,48px">Email the office</x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline" icon="phone" on-click="{{ ext.phone }}" hint-size="160px,48px">Call the office</x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline" icon="map-pin" on-click="{{ go.contact }}" hint-size="170px,48px">Map and directions</x-import>
+        </div>
+      </x-import>
+    </main>
+  </sc-if>
+
+  <!-- ============ PLAN YOUR VISIT ============ -->
+  <sc-if value="{{ is.visit }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Plan your visit">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-cream);padding:clamp(56px,8vw,104px) var(--gutter) clamp(40px,6vw,72px);">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FacetMotif" preset="soft" opacity="{{ 0.8 }}" hint-size="0,0"></x-import>
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="clay" hint-size="auto,20px">I’m new</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:18ch;">Plan your visit</h1>
+          <p style="font-size:19px;line-height:1.6;color:var(--lcc-ink-2);margin:0 0 32px;max-width:52ch;text-wrap:pretty;">Here’s what a first Sunday at Lafayette looks like, so you can walk in knowing what to expect. Come as you are — you’re welcome exactly as you are.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" on-click="{{ scrollToForm }}" hint-size="220px,48px">Let us know you’re coming</x-import>
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline" icon="map-pin" on-click="{{ openDirections }}" hint-size="160px,48px">Get directions</x-import>
+          </div>
+        </div>
+      </section>
+
+      <section style="background:#fff;border-top:1px solid var(--lcc-line);border-bottom:1px solid var(--lcc-line);padding:28px var(--gutter);">
+        <div style="max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.InfoRow" icon="clock" title="Sundays at 10 AM" sub="Bible classes for all ages at 9 AM" hint-size="100%,48px"></x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.InfoRow" icon="map-pin" title="115 New Ballwin Road" sub="Ballwin, MO 63021" hint-size="100%,48px"></x-import>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.5;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="hourglass" color="var(--lcc-slate)" hint-size="24px,24px"></x-import>
+            <div><div style="font-weight:600;">Worship lasts about <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">X</x-import> minutes</div><span style="color:var(--lcc-ink-3);font-size:15px;">10 AM to about <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">end time</x-import></span></div>
+          </div>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" number="01" title="What to expect on a Sunday" hint-size="100%,700px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="When you arrive" title="A friendly face at the door" hint-size="100%,220px">
+            <p style="margin:0;">Someone will be near the door to help you find your way and answer any questions. You don’t need to know anyone or do anything ahead of time.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Getting there" title="Where to park" hint-size="100%,220px">
+            <p style="margin:0;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">Office to write: where to park, the best door to use, and accessible parking.</x-import></p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="What to wear" title="Come as you are" hint-size="100%,220px">
+            <p style="margin:0;">There’s no dress code. Wear whatever you’re comfortable in.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="How long" title="How long it runs" hint-size="100%,220px">
+            <p style="margin:0;">Bible classes for all ages start at 9 AM. Worship starts at 10 AM and runs about <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">X minutes — Kyle to confirm</x-import>. Come to one or both.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Your kids" title="Classes for every age" hint-size="100%,220px">
+            <p style="margin:0;">At 9 AM there are Bible classes for children, students and adults. <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">Kyle to write: what’s available for kids during worship, and how drop-off works.</x-import></p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="The service" title="What worship is like" hint-size="100%,220px">
+            <p style="margin:0;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">Kyle to write: 2–3 plain sentences on singing, prayer, Scripture, the message and communion (the Lord’s Supper).</x-import></p>
+          </x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="white" number="02" title="Midweek" hint-size="100%,320px">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.RuledList" items="{{ midweek }}" hint-size="100%,80px"></x-import>
+      </x-import>
+
+      <section ref="{{ formRef }}" style="background:var(--lcc-cream);padding:var(--section-pad) var(--gutter);">
+        <div style="max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px;align-items:start;">
+          <div style="border-top:1px solid var(--lcc-line-strong);padding-top:28px;">
+            <div style="display:flex;align-items:baseline;gap:16px;">
+              <span style="font-family:var(--font-display);font-size:15px;color:var(--lcc-slate);">03</span>
+              <h2 style="font-family:var(--font-display);font-weight:500;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-0.015em;margin:0;">Let us know you’re coming</h2>
+            </div>
+            <p style="font-size:18px;line-height:1.65;color:var(--lcc-ink-2);margin:20px 0 32px;max-width:44ch;">This is optional. If you tell us when you’re planning to visit, we’ll watch for you and help you find your way.</p>
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" variant="deep" eyebrow="Want to meet first?" title="Kyle would be glad to meet you before you visit." hint-size="100%,240px">
+              <p style="margin:0 0 22px;">Kyle is our minister. If you’d like to talk before your first Sunday, just ask.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline-on-dark" on-click="{{ go.leadership }}" hint-size="120px,48px">Meet Kyle</x-import></div>
+            </x-import>
+          </div>
+
+          <div style="background:#fff;border:1px solid var(--lcc-line);border-radius:4px;padding:clamp(24px,4vw,36px);">
+            <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+              <form onSubmit="{{ submitVisit }}" style="display:grid;gap:20px;">
+                <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" label="Your name" name="name" required="{{ true }}" hint-size="100%,76px"></x-import>
+                <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" type="email" label="Email" name="email" required="{{ true }}" hint-size="100%,76px"></x-import>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:20px;">
+                  <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" type="select" label="Which Sunday?" name="date" options="{{ sundayOptions }}" required="{{ true }}" hint-size="100%,76px"></x-import>
+                  <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" type="select" label="How many of you?" name="count" options="{{ countOptions }}" required="{{ true }}" hint-size="100%,76px"></x-import>
+                </div>
+                <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" type="radio" label="Bringing children?" name="kids" options="{{ kidsOptions }}" hint-size="100%,140px"></x-import>
+                <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormField" type="textarea" label="Anything we should know?" name="notes" rows="{{ 3 }}" hint-size="100%,150px"></x-import>
+                <div><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" type="submit" hint-size="140px,48px">Send</x-import></div>
+                <p style="margin:0;font-size:14px;line-height:1.5;color:var(--lcc-ink-3);">We’ll only use this to welcome you. No mailing lists.</p>
+              </form>
+            </sc-if>
+            <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;gap:16px;">
+                <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FormSuccess" title="We’ll watch for you, {{ sentName }}." hint-size="100%,160px">See you {{ sentDate }} at 10 AM, or at 9 AM for Bible classes. Someone from the church may email you before then to say hello.</x-import>
+                <div><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="link" on-click="{{ resetForm }}" hint-size="120px,48px">Send another</x-import></div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </section>
+    </main>
+  </sc-if>
+
+  <!-- ============ WATCH ============ -->
+  <sc-if value="{{ is.watch }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Watch">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-navy);color:#fff;padding:clamp(56px,8vw,104px) var(--gutter);">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FacetMotif" preset="hero" opacity="{{ 0.5 }}" hint-size="0,0"></x-import>
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="on-dark" hint-size="auto,20px">Watch online · Sundays at 10 AM</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:18ch;text-wrap:balance;">Not ready to visit in person? Watch this Sunday.</h1>
+          <p style="font-family:var(--font-display);font-weight:300;font-size:var(--type-lede-size);line-height:1.35;color:var(--lcc-mist);margin:0 0 36px;max-width:32ch;">Join us live on YouTube at 10 AM, or catch up on a recent message anytime.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="primary" icon="circle-play" on-click="{{ ext.youtube }}" hint-size="150px,48px">Watch live</x-import>
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline-on-dark" icon="list-video" on-click="{{ ext.playlist }}" hint-size="190px,48px">Browse past sermons</x-import>
+          </div>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" hint-size="100%,640px">
+        <div>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.VideoFrame" href="https://youtube.com/@lafayettechurch" label="Watch on YouTube" sub="Live Sundays at 10 AM" hint-size="100%,480px"></x-import>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;margin-top:20px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Live" title="Sundays at 10 AM" hint-size="100%,200px">
+            <p style="margin:0;">The stream starts when worship begins. You don’t need an account to watch.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Anytime" title="Recent sermons" hint-size="100%,200px">
+            <p style="margin:0;">Every message is saved to our sermon playlist on YouTube, newest first.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" variant="warm" eyebrow="When you’re ready" title="Watched online? Come in person." hint-size="100%,200px">
+            <p style="margin:0 0 22px;">We’d love to meet you. Here’s what a first Sunday looks like.</p>
+            <div><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" on-click="{{ go.visit }}" hint-size="150px,48px">What to expect</x-import></div>
+          </x-import>
+        </div>
+      </x-import>
+    </main>
+  </sc-if>
+
+  <!-- ============ ABOUT ============ -->
+  <sc-if value="{{ is.about }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="About">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-cream);padding:clamp(56px,8vw,104px) var(--gutter) clamp(40px,6vw,72px);">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FacetMotif" preset="soft" opacity="{{ 0.8 }}" hint-size="0,0"></x-import>
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="clay" hint-size="auto,20px">About us</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:20ch;text-wrap:balance;">A loving family called by God, saved by Christ and led by the Spirit.</h1>
+          <p style="font-size:19px;line-height:1.6;color:var(--lcc-ink-2);margin:0;max-width:52ch;">We seek to honor God in all we do. We’ve been in Ballwin since 1962, and today people come from throughout the greater St. Louis metro to worship with us.</p>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="deep" eyebrow="Our mission" facets="{{ true }}" hint-size="100%,300px">
+        <p style="font-family:var(--font-display);font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.25;margin:0;max-width:26ch;color:#fff;text-wrap:balance;">To be and make disciples of Jesus Christ in our families, community and world.</p>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" number="01" title="Who we are" hint-size="100%,360px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Since 1962" title="Rooted in Ballwin" hint-size="100%,200px">
+            <p style="margin:0;">We’ve been in Ballwin since 1962.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Our people" title="From across the metro" hint-size="100%,200px">
+            <p style="margin:0;">People come from throughout the greater St. Louis metro to worship here — longtime members, newcomers and everyone in between.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Our tradition" title="A Church of Christ" hint-size="100%,200px">
+            <p style="margin:0;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">Kyle to write: one plain sentence on what being part of the Churches of Christ means.</x-import></p>
+          </x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="white" number="02" title="Our core values" hint-size="100%,340px">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.RuledList" items="{{ values }}" numbered="{{ true }}" hint-size="100%,300px"></x-import>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" number="03" title="What we believe" lede="The short version, in plain words." hint-size="100%,460px">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.RuledList" items="{{ beliefs }}" hint-size="100%,300px"></x-import>
+      </x-import>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="warm" eyebrow="Next steps" title="Meet the people behind the welcome." hint-size="100%,280px">
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" on-click="{{ go.leadership }}" hint-size="160px,48px">Our leadership</x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="outline" on-click="{{ go.visit }}" hint-size="160px,48px">What to expect</x-import>
+        </div>
+      </x-import>
+    </main>
+  </sc-if>
+
+  <!-- ============ LEADERSHIP ============ -->
+  <sc-if value="{{ is.leadership }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Leadership">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-cream);padding:clamp(56px,8vw,104px) var(--gutter) clamp(32px,5vw,56px);">
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="clay" hint-size="auto,20px">Leadership</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:18ch;">The people who care for this church</h1>
+          <p style="font-size:19px;line-height:1.6;color:var(--lcc-ink-2);margin:0;max-width:52ch;">Our minister and our Shepherds (our elders) would be glad to know you.</p>
+        </div>
+      </section>
+
+      <section style="background:var(--lcc-cream);padding:0 var(--gutter) var(--section-pad);">
+        <div style="max-width:var(--container-max);margin:0 auto;border-top:1px solid var(--lcc-line-strong);padding-top:40px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.LeaderProfile" role="Minister" name="{{ kyle.name }}" photo-label="Photo of Kyle" callout-eyebrow="Before you visit" callout-title="Want to meet first?" callout-body="{{ kyle.callout }}" action="{{ kyle.action }}" hint-size="100%,520px"><p style="margin:0;">{{ kyle.bio }}</p></x-import>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="white" eyebrow="Shepherds (our elders)" title="Our Shepherds" lede="Shepherds are the men who oversee and care for the church family. Ours serve alongside their wives, and you’re welcome to talk with any of them." hint-size="100%,640px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px;">
+          <sc-for list="{{ shepherds }}" as="s" hint-placeholder-count="4">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.PersonCard" name="{{ s.name }}" line="{{ s.line }}" photo-label="Couple photo" hint-size="100%,300px"></x-import>
+          </sc-for>
+        </div>
+      </x-import>
+    </main>
+  </sc-if>
+
+  <!-- ============ GIVE ============ -->
+  <sc-if value="{{ is.give }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Give">
+      <section style="position:relative;overflow:hidden;background:var(--lcc-sand);padding:clamp(56px,8vw,104px) var(--gutter);">
+        <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.FacetMotif" preset="soft" opacity="{{ 0.6 }}" hint-size="0,0"></x-import>
+        <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="amber" hint-size="auto,20px">Give</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:18ch;">Thank you for supporting the work of Lafayette.</h1>
+          <p style="font-size:19px;line-height:1.6;color:var(--lcc-sand-ink);margin:0 0 32px;max-width:50ch;">Giving is simple and secure. If you’re just visiting, please know there’s no expectation to give.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Button" variant="secondary" icon="heart-handshake" on-click="{{ ext.breeze }}" hint-size="160px,48px">Give online</x-import>
+            <span style="font-size:15px;color:var(--lcc-sand-ink);">Opens our secure giving page on Breeze</span>
+          </div>
+        </div>
+      </section>
+
+      <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SectionBand" tone="cream" hint-size="100%,340px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="If you’re visiting" title="There’s no expectation to give" hint-size="100%,220px">
+            <p style="margin:0;">You’re our guest. Giving is for those who call Lafayette home.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Online" title="Safe and secure" hint-size="100%,220px">
+            <p style="margin:0;">Online gifts go through Breeze, our church’s secure giving system. You can give once or set up a recurring gift.</p>
+          </x-import>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Card" eyebrow="Other ways" title="In person or by mail" hint-size="100%,220px">
+            <p style="margin:0;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">Office to confirm: giving on Sundays, and the mailing address for checks.</x-import></p>
+          </x-import>
+        </div>
+        <p style="margin:32px 0 0;font-size:16px;line-height:1.6;color:var(--lcc-ink-2);">Questions about giving? <a href="#/contact" onClick="{{ go.contactLink }}">Email the office</a> — a real person will answer.</p>
+      </x-import>
+    </main>
+  </sc-if>
+
+  <!-- ============ CONTACT ============ -->
+  <sc-if value="{{ is.contact }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Contact and location">
+      <section style="background:var(--lcc-cream);padding:clamp(56px,8vw,104px) var(--gutter) clamp(32px,5vw,56px);">
+        <div style="max-width:var(--container-max);margin:0 auto;">
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Eyebrow" tone="clay" hint-size="auto,20px">Contact &amp; location</x-import>
+          <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h1-size);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;max-width:18ch;">Questions? Talk to a real person.</h1>
+          <p style="font-size:19px;line-height:1.6;color:var(--lcc-ink-2);margin:0;max-width:52ch;">Email or call the church office and we’ll get back to you soon.</p>
+        </div>
+      </section>
+
+      <section style="background:var(--lcc-cream);padding:0 var(--gutter) 48px;">
+        <div style="max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px;">
+          <div style="background:#fff;border:1px solid var(--lcc-line);border-radius:4px;padding:28px;display:grid;gap:10px;align-content:start;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="mail" color="var(--lcc-slate)" hint-size="24px,24px"></x-import>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--lcc-slate);">Email</div>
+            <a href="mailto:office.lafayettechurch@gmail.com" onClick="{{ ext.emailLink }}" style="font-size:17px;overflow-wrap:anywhere;">office.lafayettechurch@gmail.com</a>
+          </div>
+          <div style="background:#fff;border:1px solid var(--lcc-line);border-radius:4px;padding:28px;display:grid;gap:10px;align-content:start;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="phone" color="var(--lcc-slate)" hint-size="24px,24px"></x-import>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--lcc-slate);">Phone</div>
+            <a href="tel:+16363916697" onClick="{{ ext.phoneLink }}" style="font-size:17px;">636-391-6697</a>
+            <div style="font-size:15px;color:var(--lcc-ink-3);">Office hours: <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Placeholder"  hint-size="auto,22px">days and times</x-import></div>
+          </div>
+          <div style="background:#fff;border:1px solid var(--lcc-line);border-radius:4px;padding:28px;display:grid;gap:10px;align-content:start;">
+            <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="users" color="var(--lcc-slate)" hint-size="24px,24px"></x-import>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--lcc-slate);">Follow along</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:17px;">
+              <a href="https://www.facebook.com/lafayettechurchstl/" onClick="{{ ext.facebook }}" style="display:flex;gap:8px;align-items:center;min-height:44px;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="facebook" size="{{ 20 }}" hint-size="20px,20px"></x-import>Facebook</a>
+              <a href="https://www.instagram.com/lafayettechurch/" onClick="{{ ext.instagram }}" style="display:flex;gap:8px;align-items:center;min-height:44px;"><x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Icon" name="instagram" size="{{ 20 }}" hint-size="20px,20px"></x-import>Instagram</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background:#fff;border-top:1px solid var(--lcc-line);padding:var(--section-pad) var(--gutter);">
+        <div style="max-width:var(--container-max);margin:0 auto;">
+          <div style="border-top:1px solid var(--lcc-line);padding-top:28px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:end;">
+            <div>
+              <div style="display:flex;align-items:baseline;gap:16px;">
+                <span style="font-family:var(--font-display);font-size:15px;color:var(--lcc-slate);">01</span>
+                <h2 style="font-family:var(--font-display);font-weight:500;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-0.015em;margin:0;">Find us</h2>
+              </div>
+              </div>
+          </div>
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.MapBlock" address="115 New Ballwin Road" city="Ballwin, MO 63021" hint-size="100%,560px"></x-import>
+
+          <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.RuledList" items="{{ directions }}" style="margin-top:48px;" hint-size="100%,240px"></x-import>
+        </div>
+      </section>
+    </main>
+  </sc-if>
+
+  <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.SiteFooter" logo-src="assets/logo-white.png" links="{{ footerLinks }}" facebook="https://www.facebook.com/lafayettechurchstl/" instagram="https://www.instagram.com/lafayettechurch/" on-navigate="{{ onNav }}" hint-size="100%,420px"></x-import>
+
+  <x-import component-from-global-scope="LafayetteChurchDesignSystem_2b98d9.Toast" open="{{ hasToast }}" icon="info" duration="{{ 3200 }}" on-close="{{ closeToast }}" hint-size="0,0">{{ toast }}</x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;preview&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Responsive&quot;,&quot;Mobile (390px)&quot;],&quot;default&quot;:&quot;Responsive&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', w: typeof window !== 'undefined' ? window.innerWidth : 1200, sent: false, sentName: '', sentDate: '', toast: '' };
+  links = {
+    facebook: 'https://www.facebook.com/lafayettechurchstl/',
+    instagram: 'https://www.instagram.com/lafayettechurch/',
+    youtube: 'https://youtube.com/@lafayettechurch',
+    playlist: 'https://youtube.com/playlist?list=PLnjGU3khFn4MOEdSk2JMQ4tOITYXWcBDE',
+    email: 'mailto:office.lafayettechurch@gmail.com',
+    phone: 'tel:+16363916697',
+  };
+  rootRef = React.createRef();
+  formRef = React.createRef();
+  pages = ['home', 'visit', 'watch', 'about', 'leadership', 'give', 'contact'];
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onHash = () => { const p = location.hash.replace('#/', ''); if (this.pages.includes(p) && p !== this.state.page) this.setState({ page: p }); };
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('hashchange', this.onHash);
+    window.addEventListener('popstate', this.onHash);
+    this.onHash();
+    this.applyFrame();
+  }
+  componentDidUpdate() { this.applyFrame(); }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('hashchange', this.onHash);
+    window.removeEventListener('popstate', this.onHash);
+    clearTimeout(this.tt);
+  }
+  isFrame() { return (this.props.preview ?? 'Responsive') !== 'Responsive'; }
+  applyFrame() {
+    const el = this.rootRef.current; if (!el) return;
+    const m = this.isFrame();
+    const vars = { '--type-display-size': '40px', '--type-h1-size': '34px', '--type-lede-size': '21px', '--gutter': '20px', '--section-pad': '56px' };
+    Object.entries(vars).forEach(([k, v]) => m ? el.style.setProperty(k, v) : el.style.removeProperty(k));
+    el.style.maxWidth = m ? '390px' : '';
+    el.style.borderLeft = el.style.borderRight = m ? '1px solid var(--lcc-line-strong)' : '';
+  }
+  go = (p) => {
+    try { if (location.hash !== '#/' + p) history.pushState(null, '', '#/' + p); } catch (e) {}
+    this.setState({ page: p });
+    window.scrollTo(0, 0);
+  };
+  toast = (msg) => {
+    clearTimeout(this.tt);
+    this.setState({ toast: msg });
+    
+  };
+  sundays() {
+    const d = new Date(); d.setHours(12, 0, 0, 0);
+    d.setDate(d.getDate() + ((7 - d.getDay()) % 7 || 7));
+    return [0, 1, 2, 3].map(i => { const x = new Date(d); x.setDate(d.getDate() + i * 7); return x.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }); });
+  }
+  renderVals() {
+    const page = this.state.page;
+    const is = {}; this.pages.forEach(p => is[p] = p === page);
+    const labels = { visit: "I'm new", watch: 'Watch', about: 'About', leadership: 'Leadership', give: 'Give', contact: 'Contact' };
+    const go = {}; this.pages.forEach(p => go[p] = () => this.go(p));
+    go.contactLink = (e) => { e.preventDefault(); this.go('contact'); };
+    const t = (m) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.toast(m); };
+    const open = (u) => (e) => { if (e && e.preventDefault) e.preventDefault(); window.open(u, '_blank', 'noopener'); };
+    const L = this.links;
+    const DS = window.LafayetteChurchDesignSystem_2b98d9 || {};
+    const e = React.createElement;
+    const ph = (t) => DS.Placeholder ? e(DS.Placeholder, null, t) : '[' + t + ']';
+    const ext = {
+      youtube: open(L.youtube), playlist: open(L.playlist),
+      breeze: t('Opens Breeze giving in a new tab. [Add Breeze giving link]'),
+      email: open(L.email), emailLink: open(L.email),
+      phone: open(L.phone), phoneLink: open(L.phone),
+      kyle: t('Opens an email to Kyle. [Add Kyle’s email]'),
+      facebook: open(L.facebook), instagram: open(L.instagram),
+    };
+    return {
+      rootRef: this.rootRef, formRef: this.formRef, links: this.links,
+      is, go, ext,
+      isMobile: this.isFrame() || this.state.w < 900,
+      activeLabel: labels[page] || '',
+      navLinks: ['visit', 'watch', 'about', 'leadership', 'give', 'contact'].map(k => ({ label: labels[k], href: '#/' + k, key: k })),
+      footerLinks: [
+        { label: 'Plan your visit', href: '#/visit', key: 'visit' },
+        { label: 'Watch', href: '#/watch', key: 'watch' },
+        { label: 'What we believe', href: '#/about', key: 'about' },
+        { label: 'Leadership', href: '#/leadership', key: 'leadership' },
+        { label: 'Give', href: '#/give', key: 'give' },
+        { label: 'Contact & location', href: '#/contact', key: 'contact' },
+      ],
+      onNav: (l) => this.go(l && l.key ? l.key : 'home'),
+      openDirections: () => { window.open('https://www.google.com/maps/dir/?api=1&destination=115+New+Ballwin+Road+Ballwin+MO+63021', '_blank'); },
+      scrollToForm: () => { const el = this.formRef.current; if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); },
+      sent: this.state.sent, notSent: !this.state.sent,
+      sentName: this.state.sentName, sentDate: this.state.sentDate,
+      submitVisit: (e) => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const name = String(f.get('name') || '').trim().split(' ')[0] || 'friend';
+        const date = String(f.get('date') || 'Not sure yet');
+        this.setState({ sent: true, sentName: name, sentDate: date === 'Not sure yet' ? 'soon' : 'on ' + date });
+      },
+      resetForm: () => this.setState({ sent: false }),
+      midweek: [{ title: 'Wednesdays at 7 PM', body: 'Bible study — a midweek time to study Scripture together.' }],
+      values: [1, 2, 3, 4].map(() => ({ title: ph('Core value'), body: ph('One line — Kyle to write') })),
+      beliefs: ['God', 'Jesus', 'The Bible', 'Baptism and the church'].map(t => ({ title: t, body: ph('Kyle to write: one or two sentences') })),
+      shepherds: [1, 2, 3, 4].map(() => ({ name: ph('Shepherd name & spouse name'), line: 'Optional: one line about them' })),
+      directions: [
+        { title: 'From the east', body: ph('Office to write: directions from central St. Louis') },
+        { title: 'From the west', body: ph('Office to write: directions from the west') },
+        { title: 'When you arrive', body: ph('Office to write: where to park and which door to use') },
+      ],
+      kyle: {
+        name: e(React.Fragment, null, 'Kyle ', ph('Last name')),
+        bio: ph('Kyle to write: 3–4 sentences — how long you’ve served here, your family, what you love about Lafayette.'),
+        callout: e(React.Fragment, null, 'Kyle is glad to meet with you before your first Sunday. ', ph('Kyle to write: how — coffee, a phone call, or a visit to the building.')),
+        action: DS.Button ? e(DS.Button, { variant: 'secondary', icon: 'mail', onClick: ext.kyle }, 'Email Kyle') : null,
+      },
+      sundayOptions: [...this.sundays(), 'Not sure yet'],
+      countOptions: ['Just me', '2', '3', '4', '5 or more'],
+      kidsOptions: ['Yes', 'No'],
+      closeToast: () => this.setState({ toast: '' }),
+      hasToast: !!this.state.toast, toast: this.state.toast,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "eyebrow": "Leadership",
+    "title": "The people who care for this church",
+    "lede": "Our minister and our Shepherds (our elders) would be glad to know you."
+  },
+  "minister": {
+    "role": "Minister",
+    "name": "Kyle [Last name]",
+    "photo": "",
+    "email": "",
+    "bio": "[Kyle to write: 3–4 sentences — how long you’ve served here, your family, what you love about Lafayette.]",
+    "calloutEyebrow": "Before you visit",
+    "calloutTitle": "Want to meet first?",
+    "calloutBody": "Kyle is glad to meet with you before your first Sunday. [Kyle to write: how — coffee, a phone call, or a visit to the building.]"
+  },
+  "shepherds": {
+    "eyebrow": "Shepherds (our elders)",
+    "title": "Our Shepherds",
+    "lede": "Shepherds are the men who oversee and care for the church family. Ours serve alongside their wives, and you’re welcome to talk with any of them.",
+    "people": [
+      { "name": "[Shepherd name & spouse name]", "line": "Optional: one line about them", "photo": "" },
+      { "name": "[Shepherd name & spouse name]", "line": "Optional: one line about them", "photo": "" },
+      { "name": "[Shepherd name & spouse name]", "line": "Optional: one line about them", "photo": "" },
+      { "name": "[Shepherd name & spouse name]", "line": "Optional: one line about them", "photo": "" }
+    ]
+  }
+}

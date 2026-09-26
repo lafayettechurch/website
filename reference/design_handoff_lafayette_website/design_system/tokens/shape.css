@@ -1,0 +1,22 @@
+:root{
+--radius-sm:3px;   /* buttons, inputs, swatches */
+--radius-md:4px;   /* cards, panels */
+--radius-pill:999px;
+--radius-circle:50%;
+
+--border-width:1px;
+--border-width-button:1.5px;
+
+/* Flat system: no drop shadows. Elevation = white surface + 1px warm border. */
+--shadow-none:none;
+
+--focus-ring-width:2px;
+--focus-ring-offset:2px;
+
+--facet-opacity-min:0.4; /* @kind other */
+--facet-opacity-max:0.6; /* @kind other */
+
+--ease-out:cubic-bezier(.2,.7,.2,1); /* @kind other */
+--dur-fast:150ms; /* @kind other */
+--dur-base:220ms; /* @kind other */
+}

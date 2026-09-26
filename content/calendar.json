@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "eyebrow": "Calendar",
+    "title": "What’s happening at Lafayette",
+    "lede": "Classes, gatherings and events for the whole church family. This calendar updates on its own whenever ours does."
+  },
+  "subscribe": "Want these on your phone? Add our calendar to yours.",
+  "empty": "Nothing on the calendar yet this month.",
+  "unavailable": "Our full calendar isn’t showing right now, so here’s our regular weekly schedule.",
+  "weekly": [
+    { "weekday": 0, "start": "09:00", "end": "", "title": "Bible classes for all ages", "description": "" },
+    { "weekday": 0, "start": "10:00", "end": "", "title": "Worship", "description": "" },
+    { "weekday": 3, "start": "19:00", "end": "", "title": "Bible study", "description": "" }
+  ]
+}

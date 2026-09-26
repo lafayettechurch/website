@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "eyebrow": "Contact & location",
+    "title": "Questions? Talk to a real person.",
+    "lede": "Email or call the church office and we’ll get back to you soon."
+  },
+  "findUs": {
+    "title": "Find us"
+  },
+  "directions": [
+    { "title": "From the east", "body": "[Office to write: directions from central St. Louis]" },
+    { "title": "From the west", "body": "[Office to write: directions from the west]" },
+    { "title": "When you arrive", "body": "[Office to write: where to park and which door to use]" }
+  ]
+}

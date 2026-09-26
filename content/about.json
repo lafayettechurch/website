@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "About us",
+    "title": "A loving family called by God, saved by Christ and led by the Spirit.",
+    "lede": "We seek to honor God in all we do. We’ve been in Ballwin since 1962, and today people come from throughout the greater St. Louis metro to worship with us."
+  },
+  "mission": {
+    "eyebrow": "Our mission",
+    "statement": "To be and make disciples of Jesus Christ in our families, community and world."
+  },
+  "whoWeAre": {
+    "title": "Who we are",
+    "cards": [
+      { "eyebrow": "Since 1962", "title": "Rooted in Ballwin", "body": "We’ve been in Ballwin since 1962." },
+      { "eyebrow": "Our people", "title": "From across the metro", "body": "People come from throughout the greater St. Louis metro to worship here — longtime members, newcomers and everyone in between." },
+      { "eyebrow": "Our tradition", "title": "A Church of Christ", "body": "[Kyle to write: one plain sentence on what being part of the Churches of Christ means.]" }
+    ]
+  },
+  "values": {
+    "title": "Our core values",
+    "items": [
+      { "title": "[Core value]", "body": "[One line — Kyle to write]" },
+      { "title": "[Core value]", "body": "[One line — Kyle to write]" },
+      { "title": "[Core value]", "body": "[One line — Kyle to write]" },
+      { "title": "[Core value]", "body": "[One line — Kyle to write]" }
+    ]
+  },
+  "beliefs": {
+    "title": "What we believe",
+    "lede": "The short version, in plain words.",
+    "items": [
+      { "title": "God", "body": "[Kyle to write: one or two sentences]" },
+      { "title": "Jesus", "body": "[Kyle to write: one or two sentences]" },
+      { "title": "The Bible", "body": "[Kyle to write: one or two sentences]" },
+      { "title": "Baptism and the church", "body": "[Kyle to write: one or two sentences]" }
+    ]
+  },
+  "nextSteps": {
+    "eyebrow": "Next steps",
+    "title": "Meet the people behind the welcome."
+  }
+}

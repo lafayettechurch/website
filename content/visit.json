@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "eyebrow": "I’m new",
+    "title": "Plan your visit",
+    "lede": "Here’s what a first Sunday at Lafayette looks like, so you can walk in knowing what to expect. Come as you are — you’re welcome exactly as you are."
+  },
+  "length": {
+    "title": "Worship lasts about [X] minutes",
+    "detail": "10 AM to about [end time]"
+  },
+  "expect": {
+    "title": "What to expect on a Sunday",
+    "cards": [
+      { "eyebrow": "When you arrive", "title": "A friendly face at the door", "body": "Someone will be near the door to help you find your way and answer any questions. You don’t need to know anyone or do anything ahead of time." },
+      { "eyebrow": "Getting there", "title": "Where to park", "body": "[Office to write: where to park, the best door to use, and accessible parking.]" },
+      { "eyebrow": "What to wear", "title": "Come as you are", "body": "There’s no dress code. Wear whatever you’re comfortable in." },
+      { "eyebrow": "How long", "title": "How long it runs", "body": "Bible classes for all ages start at 9 AM. Worship starts at 10 AM and runs about [X minutes — Kyle to confirm]. Come to one or both." },
+      { "eyebrow": "Your kids", "title": "Classes for every age", "body": "At 9 AM there are Bible classes for children, students and adults. [Kyle to write: what’s available for kids during worship, and how drop-off works.]" },
+      { "eyebrow": "The service", "title": "What worship is like", "body": "[Kyle to write: 2–3 plain sentences on singing, prayer, Scripture, the message and communion (the Lord’s Supper).]" }
+    ]
+  },
+  "midweek": {
+    "title": "Midweek",
+    "items": [
+      { "title": "Wednesdays at 7 PM", "body": "Bible study — a midweek time to study Scripture together." }
+    ]
+  },
+  "form": {
+    "title": "Let us know you’re coming",
+    "intro": "This is optional. If you tell us when you’re planning to visit, we’ll watch for you and help you find your way.",
+    "meetEyebrow": "Want to meet first?",
+    "meetTitle": "Kyle would be glad to meet you before you visit.",
+    "meetBody": "Kyle is our minister. If you’d like to talk before your first Sunday, just ask.",
+    "privacy": "We’ll only use this to welcome you. No mailing lists.",
+    "successBody": "See you {date} at 10 AM, or at 9 AM for Bible classes. Someone from the church may email you before then to say hello."
+  }
+}

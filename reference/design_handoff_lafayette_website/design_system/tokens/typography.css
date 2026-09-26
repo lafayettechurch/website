@@ -1,0 +1,39 @@
+:root{
+--font-display:Fraunces, Georgia, 'Times New Roman', serif;
+--font-body:Inter, 'Helvetica Neue', Arial, sans-serif;
+--font-mono:ui-monospace, Menlo, monospace;
+
+/* Scale — 1.25 ratio, 16px base. Fluid values = mobile→desktop. */
+--type-display-size:clamp(40px, 6vw, 72px);
+--type-display-lh:1.05;
+--type-display-track:-0.025em;
+--type-h1-size:clamp(32px, 4.4vw, 56px);
+--type-h1-lh:1.1;
+--type-h1-track:-0.02em;
+--type-h2-size:clamp(26px, 3vw, 36px);
+--type-h2-lh:1.15;
+--type-h2-track:-0.015em;
+--type-h3-size:23px;
+--type-h3-lh:1.25;
+--type-card-title-size:27px;
+--type-card-title-lh:1.2;
+--type-lede-size:clamp(20px, 2.6vw, 30px);
+--type-lede-lh:1.35;
+--type-body-lg:18px;
+--type-body:17px;
+--type-body-sm:16px;
+--type-small:14px;
+--type-caption:13px;
+--type-body-lh:1.6;
+--type-label-size:12px;
+--type-label-track:0.14em;
+--type-eyebrow-track:0.16em;
+
+--weight-light:300;
+--weight-regular:400;
+--weight-medium:500;
+--weight-semibold:600;
+--weight-bold:700;
+
+--measure:62ch;
+}
