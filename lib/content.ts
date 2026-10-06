@@ -79,6 +79,7 @@ export const NAV = [
   { href: '/watch', label: 'Watch' },
   { href: '/about', label: 'About' },
   { href: '/leadership', label: 'Leadership' },
+  { href: '/calendar', label: 'Calendar' },
   { href: '/give', label: 'Give' },
   { href: '/contact', label: 'Contact' },
 ];

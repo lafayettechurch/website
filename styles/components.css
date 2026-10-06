@@ -194,7 +194,7 @@ select.lcc-input{appearance:none;-webkit-appearance:none;padding-right:40px;back
 .lcc-header__logo{height:48px;width:auto;display:block}
 .lcc-header__mark{width:44px;height:44px;border-radius:50%;display:none}
 .lcc-header__nav{display:flex;gap:28px;align-items:center;margin-left:auto;font-size:15px;font-weight:500}
-.lcc-header__nav a{color:var(--lcc-slate);text-decoration:none;padding:12px 0;border-bottom:2px solid transparent}
+.lcc-header__nav a{color:var(--lcc-slate);text-decoration:none;padding:12px 0;border-bottom:2px solid transparent;white-space:nowrap}
 .lcc-header__nav a:hover{color:var(--lcc-navy)}
 .lcc-header__nav a[aria-current=page]{color:var(--lcc-navy);border-bottom-color:var(--lcc-amber)}
 .lcc-header__compact{display:none;margin-left:auto;gap:8px;align-items:center}
@@ -202,12 +202,13 @@ select.lcc-input{appearance:none;-webkit-appearance:none;padding-right:40px;back
 .lcc-header__drawer{border-top:1px solid var(--lcc-line-strong);padding:8px var(--gutter) 16px;display:grid}
 .lcc-header__drawer a{color:var(--lcc-navy);text-decoration:none;font-family:var(--font-display);font-size:22px;padding:12px 0;border-bottom:1px solid var(--lcc-line-soft)}
 .lcc-header__drawer a[aria-current=page]{color:var(--lcc-slate)}
-@media (max-width:899.98px){
+/* Compact header below 1024px: the full menu (7 links + logo + button) needs ~970px. */
+@media (max-width:1023.98px){
   .lcc-header__logo,.lcc-header__nav,.lcc-header__cta{display:none}
   .lcc-header__mark{display:block}
   .lcc-header__compact{display:flex}
 }
-@media (min-width:900px){.lcc-header__drawer{display:none}}
+@media (min-width:1024px){.lcc-header__drawer{display:none}}
 
 /* ---------- Footer ---------- */
 .lcc-footer{background:var(--lcc-navy);color:#fff;font-family:var(--font-body);padding:clamp(56px,8vw,88px) var(--gutter) 40px}
