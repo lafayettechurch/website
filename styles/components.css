@@ -310,5 +310,17 @@ select.lcc-input{appearance:none;-webkit-appearance:none;padding-right:40px;back
 .lcc-cal__meta{display:flex;gap:6px;align-items:flex-start;margin:0 0 6px;font-size:15px;line-height:1.5;color:var(--lcc-ink-3)}
 .lcc-cal__meta>svg{flex:none;margin-top:3px;color:var(--lcc-slate)}
 .lcc-cal__desc{margin:0;font-size:15px;line-height:1.6;color:var(--lcc-ink-2);white-space:pre-line;max-width:70ch;overflow-wrap:anywhere}
-.lcc-cal__subscribe{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-3);align-items:center;justify-content:space-between;margin-top:var(--space-4)}
+/* Several calendars: each gets a mark color. First is slate (the default), the second amber, a third light slate. */
+.lcc-cal__legend{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-3);margin:0;padding:var(--space-2) var(--space-3);list-style:none;border-bottom:1px solid var(--lcc-line);font-size:14px;color:var(--lcc-ink-2)}
+.lcc-cal__legend-item,.lcc-cal__source{display:flex;align-items:center;gap:var(--space-1)}
+.lcc-cal__legend-item>i,.lcc-cal__source>i{width:10px;height:10px;border-radius:2px;background:var(--cal-mark,var(--lcc-slate));flex:none}
+.lcc-cal__source{margin:0 0 6px;font-size:14px;color:var(--lcc-ink-3)}
+.lcc-cal--c1{--cal-mark:var(--lcc-amber)}
+.lcc-cal--c2{--cal-mark:var(--lcc-slate-light)}
+.lcc-cal__chip.lcc-cal--c1,.lcc-cal__chip.lcc-cal--c2{border-left-color:var(--cal-mark)}
+.lcc-cal__dots i.lcc-cal--c1,.lcc-cal__dots i.lcc-cal--c2{background:var(--cal-mark)}
+
+.lcc-cal__subscribe{display:grid;gap:var(--space-2);margin-top:var(--space-4)}
 .lcc-cal__subscribe p{margin:0;font-size:16px;color:var(--lcc-ink-2)}
+.lcc-cal__subscribe-row{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-3);align-items:center}
+.lcc-cal__subscribe .lcc-cal__subscribe-name{min-width:12ch;font-weight:600;color:var(--lcc-navy)}

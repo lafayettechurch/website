@@ -49,7 +49,7 @@ export function VisitForm({ privacy, successBody, officeEmail }: { privacy: stri
   if (sent) {
     const when = sent.date === NOT_SURE ? 'soon' : 'on ' + sent.date;
     return <div style={{ display: 'grid', gap: 16 }}>
-      <FormSuccess ref={successRef} title={`We’ll watch for you, ${sent.name}.`}>{successBody.replace('{date}', when)}</FormSuccess>
+      <FormSuccess ref={successRef} title={`We’ll watch for you, ${sent.name}.`}><span style={{ whiteSpace: 'pre-line' }}>{successBody.replace('{date}', when)}</span></FormSuccess>
       <div><Button variant="link" onClick={() => { setSent(null); }}>Send another</Button></div>
     </div>;
   }

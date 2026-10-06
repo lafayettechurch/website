@@ -63,18 +63,18 @@ Use a **church-owned** email for the account, and add a second admin, so the pro
 1. Push this folder to a GitHub repository (church-owned organization) and import it in Vercel. Framework: Next.js, no build settings needed.
 2. Add the environment variables from `.env.example` in Vercel, except `SANITY_API_WRITE_TOKEN`:
    - `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_REVALIDATE_SECRET`: from the Sanity setup above.
-   - `VISIT_FORM_TO`: **who gets "Let us know you're coming" submissions.** Set it to the office inbox, Kyle, or both (comma-separated). Use `VISIT_FORM_CC` to copy someone instead.
-   - `RESEND_API_KEY` and `VISIT_FORM_FROM`: create a free [Resend](https://resend.com) account, verify the `lafayettechurch.org` domain, and use a sender on it, e.g. `Lafayette website <forms@lafayettechurch.org>`. Replies go straight to the guest.
-   - `GOOGLE_CALENDAR_ID` and `GOOGLE_CALENDAR_API_KEY`: see below.
+   - `VISIT_FORM_TO` and `VISIT_FORM_CC`: **who gets "Let us know you're coming" submissions.** Decided: the office inbox (`office.lafayettechurch@gmail.com`), with Kyle copied (`kyle.lafayettechurch@gmail.com`).
+   - `RESEND_API_KEY` and `VISIT_FORM_FROM`: create a free [Resend](https://resend.com) account (church account), verify the `lafayettechurch.org` domain, and use a sender on it, e.g. `Lafayette website <forms@lafayettechurch.org>`. Replies go straight to the guest. Domain verification needs DNS access, so do this when the real domain is connected.
+   - `GOOGLE_CALENDAR_IDS` and `GOOGLE_CALENDAR_API_KEY`: see below.
 
 Without `RESEND_API_KEY`, the form still works in development and logs submissions to the server console. In production it returns an error and asks the guest to email the office, so no submission disappears silently.
 
 ## Connecting the calendar
 
-`/calendar` shows Kyle's Google Calendar in the site's own design, and refreshes itself every 15 minutes. Until it's connected, it shows the regular weekly schedule from the Calendar page in Sanity.
+`/calendar` shows the church's Google Calendars, merged into one calendar in the site's own design, and refreshes itself every 15 minutes. With more than one calendar, each gets its own color, with a legend, and is labeled on its events. Until they're connected, it shows the regular weekly schedule from the Calendar page in Sanity.
 
-1. **Decide what's public.** In Google Calendar, open the calendar's **Settings and sharing → Access permissions** and turn on **Make available to public** with "See all event details". Anything marked *Private* on an individual event is never shown on the site, but it's cleaner to keep private items on a separate calendar.
-2. Copy the **Calendar ID** from **Integrate calendar** into `GOOGLE_CALENDAR_ID`.
+1. **Decide what's public.** For each calendar, in Google Calendar open **Settings and sharing → Access permissions** and turn on **Make available to public** with "See all event details". Anything marked *Private* on an individual event is never shown on the site, but it's cleaner to keep private items on a separate calendar.
+2. Copy each calendar's **Calendar ID** from **Integrate calendar** into `GOOGLE_CALENDAR_IDS`, separated by commas. The first one listed gets slate, the second amber. The name shown on the site is the calendar's name in Google Calendar, so rename it there if needed.
 3. In [Google Cloud Console](https://console.cloud.google.com/), create a project (church account), enable the **Google Calendar API**, and create an **API key** restricted to that API. Put it in `GOOGLE_CALENDAR_API_KEY`. It's free at this volume.
 
 Once connected, the page also shows "add to your calendar" buttons for Google, Apple and Outlook.
@@ -82,9 +82,7 @@ Once connected, the page also shows "add to your calendar" buttons for Google, A
 ## Still needed from the church
 
 - The Breeze giving URL: in the Studio under **Church details → Links**. Until then, "Give online" shows a note pointing people to the office email.
-- Kyle's email: under **Leadership → Minister**. Until then, "Email Kyle" points people to the office.
 - Everything listed by `npm run placeholders`: worship length, parking, kids, core values, beliefs, bios, Shepherd names and photos, office hours, directions, other ways to give. Much of this can be carried over from the current site.
-- A decision on the form recipient (`VISIT_FORM_TO`).
 - SVG exports of the logo from the designer's package, to replace the PNGs in `public/assets/`.
 
 See [CMS.md](CMS.md) for the guide to hand to editors.

@@ -6,7 +6,7 @@ export default async function HomePage() {
   const [site, home] = await Promise.all([getSite(), getHome()]);
   return <>
     <PageHero tone="navy" facets="hero" facetOpacity={0.5} display ledeDisplay
-      eyebrow={home.hero.eyebrow} title={home.hero.title} lede={home.hero.lede}>
+      eyebrow={home.hero.eyebrow} title={home.hero.title} lede={<Rich text={home.hero.lede} />}>
       <div className="lcc-actions">
         <Button variant="primary" href="/visit">Plan your visit</Button>
         <Button variant="outline-on-dark" icon="circle-play" href="/watch">Watch this Sunday</Button>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Button, InfoRow, SectionBand } from '@/components/ds';
+import { Button, InfoRow, Rich, SectionBand } from '@/components/ds';
 import { EventCalendar } from '@/components/site/EventCalendar';
 import { PageHero } from '@/components/site/PageHero';
 import { getCalendar } from '@/lib/calendar';
@@ -16,7 +16,7 @@ export const revalidate = 900;
 export default async function CalendarPage() {
   const [site, calendar, data] = await Promise.all([getSite(), getCalendarContent(), getCalendar()]);
   return <>
-    <PageHero flush facets="soft" facetOpacity={0.8} eyebrow={calendar.hero.eyebrow} title={calendar.hero.title} lede={calendar.hero.lede} />
+    <PageHero flush facets="soft" facetOpacity={0.8} eyebrow={calendar.hero.eyebrow} title={calendar.hero.title} lede={<Rich text={calendar.hero.lede} />} />
 
     <section className="lcc-strip lcc-strip--top" aria-label="Weekly schedule">
       <div className="lcc-container lcc-grid" style={{ ['--min' as string]: '230px' }}>
@@ -28,13 +28,17 @@ export default async function CalendarPage() {
 
     <SectionBand tone="cream" label="Church calendar">
       <EventCalendar events={data.events} firstMonth={data.firstMonth} lastMonth={data.lastMonth}
-        notice={data.source === 'weekly' ? calendar.unavailable : undefined} emptyText={calendar.empty} />
-      {data.subscribe && <div className="lcc-cal__subscribe">
+        notice={data.source === 'weekly' ? calendar.unavailable : undefined} emptyText={calendar.empty}
+        calendarNames={data.calendars.map(c => c.name)} />
+      {data.calendars.length > 0 && <div className="lcc-cal__subscribe">
         <p>{calendar.subscribe}</p>
-        <div className="lcc-actions">
-          <Button variant="outline" icon="calendar" href={data.subscribe.google}>Google Calendar</Button>
-          <Button variant="outline" icon="calendar" href={data.subscribe.ical}>Apple or Outlook</Button>
-        </div>
+        {data.calendars.map(c => <div key={c.name} className="lcc-cal__subscribe-row">
+          {data.calendars.length > 1 && <p className="lcc-cal__subscribe-name">{c.name}</p>}
+          <div className="lcc-actions">
+            <Button variant="outline" icon="calendar" href={c.subscribe.google}>Google Calendar</Button>
+            <Button variant="outline" icon="calendar" href={c.subscribe.ical}>Apple or Outlook</Button>
+          </div>
+        </div>)}
       </div>}
     </SectionBand>
   </>;

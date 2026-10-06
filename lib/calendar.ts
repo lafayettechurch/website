@@ -1,8 +1,8 @@
-// Church calendar: read from Kyle's Google Calendar and shown in the site's own design.
+// Church calendar: read from the church's Google Calendars and shown in the site's own design.
 //
-// Setup (see README): make the calendar public, then set GOOGLE_CALENDAR_ID and
-// GOOGLE_CALENDAR_API_KEY in Vercel. Without them, the page shows the regular weekly
-// schedule from the Calendar page in Sanity instead.
+// Setup (see README): make each calendar public, then set GOOGLE_CALENDAR_IDS (one or more
+// calendar IDs, comma-separated) and GOOGLE_CALENDAR_API_KEY in Vercel. Without them, the
+// page shows the regular weekly schedule from the Calendar page in Sanity instead.
 import { getCalendarContent, getSite } from '@/lib/content';
 import { addDays, addMonths, daysInMonth, localParts, weekdayOf } from '@/lib/dates';
 
@@ -18,6 +18,14 @@ export type CalEvent = {
   end?: string;
   location?: string;
   description?: string;
+  /** Index into CalendarData.calendars (which Google Calendar it came from). */
+  calendar: number;
+};
+
+export type CalendarSource = {
+  /** The calendar's own name in Google Calendar, e.g. "Lafayette Church Events". */
+  name: string;
+  subscribe: { google: string; ical: string };
 };
 
 export type CalendarData = {
@@ -25,7 +33,7 @@ export type CalendarData = {
   firstMonth: string;
   lastMonth: string;
   source: 'google' | 'weekly';
-  subscribe?: { google: string; ical: string };
+  calendars: CalendarSource[];
 };
 
 /** How far ahead people can browse. */
@@ -49,48 +57,61 @@ export async function getCalendar(): Promise<CalendarData> {
   const [site, content] = await Promise.all([getSite(), getCalendarContent()]);
   const churchStreet = site.address.street.toLowerCase();
 
-  const id = process.env.GOOGLE_CALENDAR_ID;
+  const ids = (process.env.GOOGLE_CALENDAR_IDS || process.env.GOOGLE_CALENDAR_ID || '')
+    .split(',').map(s => s.trim()).filter(Boolean);
   const key = process.env.GOOGLE_CALENDAR_API_KEY;
-  if (id && key) {
-    try {
-      const events = await fetchGoogle(id, key, firstDay, lastDay, churchStreet);
-      const enc = encodeURIComponent(id);
-      return {
-        ...base, events, source: 'google',
+  if (ids.length && key) {
+    // Each calendar loads on its own, so one unreachable calendar doesn't hide the others.
+    const results = await Promise.allSettled(ids.map(id => fetchGoogle(id, key, firstDay, lastDay, churchStreet)));
+    const calendars: CalendarSource[] = [];
+    const events: CalEvent[] = [];
+    results.forEach((r, i) => {
+      if (r.status === 'rejected') { console.error(`[calendar] Google Calendar ${ids[i]} failed`, r.reason); return; }
+      const { name, events: list } = r.value;
+      const index = calendars.length;
+      const enc = encodeURIComponent(ids[i]);
+      calendars.push({
+        name,
         subscribe: {
           google: `https://calendar.google.com/calendar/u/0/r?cid=${enc}`,
           ical: `webcal://calendar.google.com/calendar/ical/${enc}/public/basic.ics`,
         },
-      };
-    } catch (err) {
-      console.error('[calendar] Google Calendar fetch failed; showing weekly schedule', err);
-    }
+      });
+      events.push(...list.map(e => ({ ...e, id: `${index}-${e.id}`, calendar: index })));
+    });
+    if (calendars.length) return { ...base, events, source: 'google', calendars };
+    console.error('[calendar] No Google Calendars could be read; showing weekly schedule');
   }
-  return { ...base, events: weekly(content.weekly, firstDay, lastDay), source: 'weekly' };
+  return { ...base, events: weekly(content.weekly, firstDay, lastDay), source: 'weekly', calendars: [] };
 }
 
-async function fetchGoogle(id: string, key: string, firstDay: string, lastDay: string, churchStreet: string): Promise<CalEvent[]> {
+/**
+ * One calendar's events, plus its display name. The name comes from the events response
+ * because Google's calendar-details endpoint doesn't accept an API key.
+ */
+async function fetchGoogle(id: string, key: string, firstDay: string, lastDay: string, churchStreet: string): Promise<{ name: string; events: Omit<CalEvent, 'calendar'>[] }> {
   const url = new URL(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(id)}/events`);
   url.search = new URLSearchParams({
     key, singleEvents: 'true', orderBy: 'startTime', maxResults: '2500', timeZone: 'America/Chicago',
     // A day of padding either side; events are trimmed to church-local days below.
     timeMin: new Date(addDays(firstDay, -1) + 'T00:00:00Z').toISOString(),
     timeMax: new Date(addDays(lastDay, 2) + 'T00:00:00Z').toISOString(),
-    fields: 'items(id,status,visibility,summary,description,location,start,end)',
+    fields: 'summary,items(id,status,visibility,summary,description,location,start,end)',
   }).toString();
 
   const res = await fetch(url, { next: { revalidate: CALENDAR_REVALIDATE } });
   if (!res.ok) throw new Error(`Google Calendar ${res.status}: ${(await res.text()).slice(0, 300)}`);
-  const { items = [] } = await res.json() as { items?: GoogleEvent[] };
+  const { summary, items = [] } = await res.json() as { summary?: string; items?: GoogleEvent[] };
 
-  return items
+  const events = items
     // Never publish events Kyle marked private, even if Google returns them.
     .filter(e => e.status !== 'cancelled' && e.visibility !== 'private' && e.visibility !== 'confidential')
     .map(e => toEvent(e, churchStreet))
     .filter(e => e.endDate >= firstDay && e.date <= lastDay);
+  return { name: summary?.trim() || 'Church calendar', events };
 }
 
-function toEvent(e: GoogleEvent, churchStreet: string): CalEvent {
+function toEvent(e: GoogleEvent, churchStreet: string): Omit<CalEvent, 'calendar'> {
   // Only show a location when it's somewhere other than the church building.
   const loc = e.location?.trim();
   const location = loc && !loc.toLowerCase().includes(churchStreet) ? loc : undefined;
@@ -124,7 +145,7 @@ function weekly(schedule: Weekly[], firstDay: string, lastDay: string): CalEvent
   for (let day = firstDay; day <= lastDay; day = addDays(day, 1)) {
     schedule.forEach((w, i) => {
       if (w.weekday === weekdayOf(day)) {
-        out.push({ id: `weekly-${day}-${i}`, title: w.title, date: day, endDate: day, start: w.start, end: w.end || undefined, description: w.description || undefined });
+        out.push({ id: `weekly-${day}-${i}`, title: w.title, date: day, endDate: day, start: w.start, end: w.end || undefined, description: w.description || undefined, calendar: 0 });
       }
     });
   }

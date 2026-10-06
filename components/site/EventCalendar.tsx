@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Icon } from '@/components/ds/Icon';
 import type { CalEvent } from '@/lib/calendar';
 import {
@@ -8,6 +8,10 @@ import {
 } from '@/lib/dates';
 
 type View = 'auto' | 'month' | 'list';
+
+/** Names of the Google Calendars being shown, by index. Only labeled when there's more than one. */
+const CalendarNames = createContext<string[]>([]);
+const calClass = (i: number) => (i > 0 ? ` lcc-cal--c${Math.min(i, 2)}` : '');
 const MAX_CHIPS = 3;
 
 /**
@@ -15,8 +19,8 @@ const MAX_CHIPS = 3;
  * phones (either can be chosen). In "auto" mode CSS picks the view, so there's no flash
  * of the wrong layout while the page loads.
  */
-export function EventCalendar({ events, firstMonth, lastMonth, notice, emptyText }: {
-  events: CalEvent[]; firstMonth: string; lastMonth: string; notice?: string; emptyText: string;
+export function EventCalendar({ events, firstMonth, lastMonth, notice, emptyText, calendarNames = [] }: {
+  events: CalEvent[]; firstMonth: string; lastMonth: string; notice?: string; emptyText: string; calendarNames?: string[];
 }) {
   const [month, setMonth] = useState(firstMonth);
   const [view, setView] = useState<View>('auto');
@@ -46,7 +50,7 @@ export function EventCalendar({ events, firstMonth, lastMonth, notice, emptyText
     setSelected(today?.startsWith(next) ? today : null);
   }
 
-  return <div className="lcc-cal" data-view={view}>
+  return <CalendarNames.Provider value={calendarNames}><div className="lcc-cal" data-view={view}>
     <div className="lcc-cal__surface">
     <div className="lcc-cal__bar">
       <div className="lcc-cal__nav">
@@ -68,6 +72,9 @@ export function EventCalendar({ events, firstMonth, lastMonth, notice, emptyText
     </div>
 
     {notice && <p className="lcc-cal__notice"><Icon name="info" size={18} />{notice}</p>}
+    {calendarNames.length > 1 && <ul className="lcc-cal__legend" aria-label="Calendars shown">
+      {calendarNames.map((n, i) => <li key={i} className={'lcc-cal__legend-item' + calClass(i)}><i aria-hidden="true" />{n}</li>)}
+    </ul>}
 
     <div className="lcc-cal__month">
       <MonthGrid y={y} m={m} byDay={byDay} today={today} selected={selected} onSelect={setSelected} />
@@ -83,7 +90,7 @@ export function EventCalendar({ events, firstMonth, lastMonth, notice, emptyText
         ? <DayEvents day={selected} events={byDay.get(selected) || []} headingLevel="h3" />
         : <p className="lcc-cal__hint">Choose a day to see what’s happening.</p>}
     </div>
-  </div>;
+  </div></CalendarNames.Provider>;
 }
 
 function groupByDay(events: CalEvent[]) {
@@ -144,12 +151,12 @@ function MonthGrid({ y, m, byDay, today, selected, onSelect }: {
               onClick={() => onSelect(day)} onKeyDown={e => onKey(e, day)}>
               <span className="lcc-cal__num" aria-hidden="true">{d}</span>
               <span className="lcc-cal__chips" aria-hidden="true">
-                {list.slice(0, MAX_CHIPS).map(e => <span key={e.id} className="lcc-cal__chip">
+                {list.slice(0, MAX_CHIPS).map(e => <span key={e.id} className={'lcc-cal__chip' + calClass(e.calendar)}>
                   {e.start && e.date === day && <b>{formatTime(e.start)}</b>} {e.title}
                 </span>)}
                 {list.length > MAX_CHIPS && <span className="lcc-cal__more">+{list.length - MAX_CHIPS} more</span>}
               </span>
-              {list.length > 0 && <span className="lcc-cal__dots" aria-hidden="true">{list.slice(0, 3).map(e => <i key={e.id} />)}</span>}
+              {list.length > 0 && <span className="lcc-cal__dots" aria-hidden="true">{list.slice(0, 3).map(e => <i key={e.id} className={calClass(e.calendar).trim() || undefined} />)}</span>}
             </button>
           </td>;
         })}
@@ -183,6 +190,7 @@ function ListView({ y, m, byDay, today, emptyText }: { y: number; m: number; byD
 function DayEvents({ day, events, headingLevel: H, visuallyHiddenHeading, today }: {
   day: string; events: CalEvent[]; headingLevel: 'h3'; visuallyHiddenHeading?: boolean; today?: boolean;
 }) {
+  const names = useContext(CalendarNames);
   return <div className="lcc-cal__dayevents">
     <H className={visuallyHiddenHeading ? 'lcc-sr-only' : 'lcc-cal__dayhead'}>{formatDay(day)}{today && ' (today)'}</H>
     {events.length === 0
@@ -190,6 +198,7 @@ function DayEvents({ day, events, headingLevel: H, visuallyHiddenHeading, today 
       : <ul className="lcc-cal__events">{events.map(e => <li key={e.id} className="lcc-cal__event">
         <p className="lcc-cal__time">{e.date !== e.endDate ? spanLabel(e) : formatRange(e.start, e.end)}</p>
         <h4 className="lcc-cal__etitle">{e.title}</h4>
+        {names.length > 1 && <p className={'lcc-cal__source' + calClass(e.calendar)}><i aria-hidden="true" />{names[e.calendar]}</p>}
         {e.location && <p className="lcc-cal__meta"><Icon name="map-pin" size={16} />
           <a href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(e.location)} target="_blank" rel="noopener noreferrer">{e.location}</a>
         </p>}
