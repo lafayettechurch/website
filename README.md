@@ -1,6 +1,6 @@
 # lafayettechurch.org
 
-The Lafayette Church of Christ website: Next.js (App Router) on Vercel, with content edited in Sanity Studio at `/studio`.
+The Lafayette Church of Christ website, **live at https://lafayettechurch.org** (since October 24, 2026). Next.js (App Router) on Vercel, with content edited in Sanity Studio at [lafayettechurch.org/studio](https://lafayettechurch.org/studio).
 
 The design handoff (prototype, tokens, component source) is in `reference/design_handoff_lafayette_website/`.
 
@@ -50,7 +50,7 @@ Use a **church-owned** email for the account, and add a second admin, so the pro
    ```
    It only adds pages that don't exist yet, so it's safe to re-run. `npm run seed -- --force` overwrites Sanity with the JSON files and discards edits made there.
 4. Open http://localhost:3000/studio and check that everything's there.
-5. **Publish webhook** (so edits show up right away): in sanity.io/manage → **API → Webhooks → Create**:
+5. **Publish webhook** (so edits show up right away; already set up as "Refresh website on publish"): in sanity.io/manage → **API → Webhooks → Create**:
    - URL: `https://lafayettechurch.org/api/revalidate`
    - Trigger on: Create, Update, Delete. Filter: leave empty. Projection: `{_type}`.
    - Secret: a long random string. Put the same string in Vercel as `SANITY_REVALIDATE_SECRET`.
@@ -79,10 +79,27 @@ Without `RESEND_API_KEY`, the form still works in development and logs submissio
 
 Once connected, the page also shows "add to your calendar" buttons for Google, Apple and Outlook.
 
-## Still needed from the church
+## Domain, DNS and email (how the live site is wired)
 
-- The Breeze giving URL: in the Studio under **Church details → Links**. Until then, "Give online" shows a note pointing people to the office email.
-- Everything listed by `npm run placeholders`: worship length, parking, kids, core values, beliefs, bios, Shepherd names and photos, office hours, directions, other ways to give. Much of this can be carried over from the current site.
+- **Registration and DNS** for `lafayettechurch.org` are at **WordPress.com**, attached to the old site `ballwinchurch.wordpress.com` (free plan, private). It auto-renews through 2030. **Never delete that WordPress site.** It holds the domain, the email forwarding, and the old media archive (about 51 GB of old recordings).
+- **Website records** (WordPress.com → Domains → lafayettechurch.org → DNS records):
+  - `A @ → 216.198.79.1` (Vercel)
+  - `CNAME www → c18cf3d821f49b96.vercel-dns-017.com` (Vercel; `www` redirects to the plain address)
+  - To roll back to the old site, delete those two records.
+- **Email forwarding** (the MX record "handled by WordPress.com email forwarding") sends `kyle@`, `office@`, `lcm@`, `mike@` and `mike.brown@lafayettechurch.org` to church Gmail accounts. Don't change the MX, SPF (`@` TXT), `wpcloud*._domainkey` or `_dmarc` records.
+- **Resend** (visit form email; church worship account): the domain is verified with `TXT resend._domainkey`, `CNAME rsend` and `CNAME send` (both → `*.forge.rmta.net`). The API key is in Vercel as `RESEND_API_KEY`. Change it at resend.com → API keys.
+- **Old WordPress links** (`/?page_id=N`) forward to their new pages in `proxy.ts`.
+
+## Embedded services
+
+- **Giving:** the Give page embeds Breeze's own form (Studio: Give → Online giving form). Card details stay in Breeze/Stripe's fields. Ministries whose link is the main Breeze page jump to that form with a hint to choose the fund.
+- **Announcements:** the home page embeds Kyle's Proclaim Digital Signage sign (Studio: Home → Announcement slides). Slides are edited in Proclaim.
+- **Calendar:** two public Google Calendars (see above).
+- **Sermons and livestream:** YouTube links only; nothing is hosted here.
+
+## Nice to have
+
 - SVG exports of the logo from the designer's package, to replace the PNGs in `public/assets/`.
+- Breeze settings (for whoever administers Breeze): the giving form's button color, and whether a link can preselect a fund.
 
 See [CMS.md](CMS.md) for the guide to hand to editors.
