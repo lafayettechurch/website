@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const site = await getSite();
   return {
     title: { default: site.name + ' · Ballwin, MO', template: '%s · ' + site.name },
-    description: `${site.tagline} Worship ${site.sunday.title.toLowerCase()} at ${site.address.street}, ${site.address.city}.`,
+    description: `${site.tagline} ${site.sunday.title}, ${site.address.street}, ${site.address.city}.`,
     openGraph: { siteName: site.name, locale: 'en_US', type: 'website' },
   };
 }

@@ -27,7 +27,6 @@ export default async function ContactPage() {
           <Icon name="phone" />
           <h2 className="lcc-tile__label">Phone</h2>
           <a className="lcc-tile__value" href={telHref(site.office.phone)}>{site.office.phone}</a>
-          <div className="lcc-tile__meta">Office hours: <Rich text={site.office.hours} /></div>
         </div>
         <div className="lcc-tile">
           <Icon name="users" />

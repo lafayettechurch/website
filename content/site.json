@@ -6,8 +6,7 @@
     "city": "Ballwin, MO 63021"
   },
   "sunday": {
-    "title": "Sundays at 10 AM",
-    "worship": "Worship",
+    "title": "Sunday Worship at 10 AM",
     "classes": "Bible classes for all ages at 9 AM"
   },
   "midweek": {
@@ -20,8 +19,7 @@
   },
   "office": {
     "email": "office.lafayettechurch@gmail.com",
-    "phone": "636-391-6697",
-    "hours": "[days and times]"
+    "phone": "636-391-6697"
   },
   "links": {
     "facebook": "https://www.facebook.com/lafayettechurchstl/",

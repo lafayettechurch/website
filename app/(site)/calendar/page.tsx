@@ -20,7 +20,7 @@ export default async function CalendarPage() {
 
     <section className="lcc-strip lcc-strip--top" aria-label="Weekly schedule">
       <div className="lcc-container lcc-grid" style={{ ['--min' as string]: '230px' }}>
-        <InfoRow icon="clock" title={site.sunday.title} sub={`${site.sunday.worship} · ${site.sunday.classes}`} />
+        <InfoRow icon="clock" title={site.sunday.title} sub={site.sunday.classes} />
         <InfoRow icon="calendar" title={site.midweek.title} sub={site.midweek.detail} />
         <InfoRow icon="map-pin" title={site.address.street} sub={`${site.address.city} · Get directions`} href="/contact#find-us" />
       </div>

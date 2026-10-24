@@ -17,8 +17,7 @@ const siteSettings = defineType({
     str('tagline', 'Tagline', { description: 'Shown in the footer.' }),
     group('address', 'Address', [str('street', 'Street', { required: true }), str('city', 'City, state and ZIP', { required: true })]),
     group('sunday', 'Sundays', [
-      str('title', 'Time', { description: 'For example, “Sundays at 10 AM”.' }),
-      str('worship', 'What happens'),
+      str('title', 'Time', { description: 'For example, “Sunday Worship at 10 AM”.' }),
       str('classes', 'Bible classes'),
     ]),
     group('midweek', 'Midweek', [str('title', 'Time'), str('detail', 'What happens')]),
@@ -28,7 +27,6 @@ const siteSettings = defineType({
     group('office', 'Church office', [
       str('email', 'Email'),
       str('phone', 'Phone', { description: 'Written like 636-391-6697.' }),
-      str('hours', 'Office hours'),
     ]),
     group('links', 'Links', [
       url('facebook', 'Facebook'),
@@ -144,6 +142,24 @@ const givePage = defineType({
   fields: [
     group('hero', 'Top of page', [str('eyebrow', 'Small label'), str('title', 'Headline'), txt('lede', 'Intro'), str('note', 'Note beside the button')]),
     cards('cards', 'Cards'),
+    group('ministries', 'Missions & ministries we support', [
+      str('eyebrow', 'Small label'),
+      str('title', 'Section title'),
+      txt('lede', 'Intro (optional)'),
+      defineField({
+        name: 'items', title: 'Missions & ministries', type: 'array',
+        description: 'Each one gets its own row with a giving link. Drag to reorder.',
+        of: [defineArrayMember({
+          type: 'object', name: 'ministry', title: 'Mission or ministry',
+          fields: [
+            str('name', 'Name', { required: true }),
+            txt('note', 'Short instructions (optional)', { rows: 2, description: 'For example, “Choose Greece/Andrews from the dropdown.”' }),
+            url('url', 'Giving link', { description: 'Where to give. The site shows it as a “Give to …” link.' }),
+          ],
+          preview: { select: { title: 'name', subtitle: 'url' } },
+        })],
+      }),
+    ], { description: 'Shown below the cards on the Give page.' }),
   ],
   preview: { prepare: () => ({ title: 'Give' }) },
 });
