@@ -51,6 +51,15 @@ const homePage = defineType({
       description: 'The white section below the two cards, with the “What we believe” and “Meet our leaders” links.',
     }),
     card('give', 'Give section'),
+    group('slides', 'Announcement slides (Proclaim)', [
+      defineField({ name: 'show', title: 'Show this section', type: 'boolean', initialValue: true }),
+      str('eyebrow', 'Small label'),
+      str('title', 'Title'),
+      txt('lede', 'Text', { rows: 2 }),
+      url('signUrl', 'Proclaim sign address', {
+        description: 'The “embed” address of the Proclaim Digital Signage sign, starting with https://signage.faithlife.com/. Slides are edited in Proclaim, not here.',
+      }),
+    ], { description: 'The slideshow from Proclaim, shown above the Contact section. Anything in the sign is public on the website.' }),
     group('contact', 'Contact section', [str('eyebrow', 'Small label'), str('title', 'Title'), txt('lede', 'Text')]),
   ],
   preview: { prepare: () => ({ title: 'Home' }) },

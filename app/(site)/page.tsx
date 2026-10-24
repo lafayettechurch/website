@@ -1,5 +1,6 @@
 import { Button, Card, InfoRow, Rich, SectionBand } from '@/components/ds';
 import { PageHero } from '@/components/site/PageHero';
+import { SlidesBand } from '@/components/site/SlidesBand';
 import { getHome, getSite, telHref } from '@/lib/content';
 
 export default async function HomePage() {
@@ -47,6 +48,9 @@ export default async function HomePage() {
         <div><Button variant="secondary" href="/give">Ways to give</Button></div>
       </div>
     </SectionBand>
+
+    {home.slides.show && home.slides.signUrl && <SlidesBand eyebrow={home.slides.eyebrow} title={home.slides.title}
+      lede={home.slides.lede} signUrl={home.slides.signUrl} />}
 
     <SectionBand tone="cream" id="contact" eyebrow={home.contact.eyebrow} title={home.contact.title} lede={<Rich text={home.contact.lede} />}>
       <div className="lcc-actions">

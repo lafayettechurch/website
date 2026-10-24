@@ -1,6 +1,6 @@
 import {
   Baby, Calendar, CalendarDays, ChevronLeft, ChevronRight, CircleCheck, CirclePlay, Clock, HeartHandshake, Hourglass, Image, Info,
-  List, ListVideo, Mail, MapPin, Menu, Navigation, Phone, Sparkles, Users, X,
+  List, ListVideo, Mail, MapPin, Maximize2, Menu, Navigation, Phone, Sparkles, Users, X,
   type LucideProps,
 } from 'lucide-react';
 
@@ -16,7 +16,7 @@ const ICONS = {
   baby: Baby, calendar: Calendar, 'calendar-days': CalendarDays, 'chevron-left': ChevronLeft, 'chevron-right': ChevronRight,
   'circle-check': CircleCheck, 'circle-play': CirclePlay, clock: Clock,
   facebook: Facebook, 'heart-handshake': HeartHandshake, hourglass: Hourglass, image: Image, info: Info,
-  instagram: Instagram, list: List, 'list-video': ListVideo, mail: Mail, 'map-pin': MapPin, menu: Menu,
+  instagram: Instagram, list: List, 'list-video': ListVideo, maximize: Maximize2, mail: Mail, 'map-pin': MapPin, menu: Menu,
   navigation: Navigation, phone: Phone, sparkles: Sparkles, users: Users, x: X,
 };
 

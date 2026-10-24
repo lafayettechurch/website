@@ -24,6 +24,13 @@
     "title": "Give",
     "body": "Thank you for supporting the work and mission of Lafayette. Giving is simple and secure — and if you’re just visiting, please know there’s no expectation to give."
   },
+  "slides": {
+    "show": true,
+    "eyebrow": "This month",
+    "title": "Rhythms of Life at Lafayette",
+    "lede": "Announcements and upcoming events, updated each week.",
+    "signUrl": "https://signage.faithlife.com/lafayettestl-presentation-group/signs/embed/sunday-morniong"
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Questions? Talk to a real person.",
