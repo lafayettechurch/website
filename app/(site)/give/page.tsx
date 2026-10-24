@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button, Card, Placeholder, Rich, RuledList, SectionBand } from '@/components/ds';
+import { GivingEmbed } from '@/components/site/GivingEmbed';
 import { PageHero } from '@/components/site/PageHero';
 import { PendingLinkButton } from '@/components/site/PendingLinkButton';
 import { getGive, getSite, plain } from '@/lib/content';
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 export default async function GivePage() {
   const [site, give] = await Promise.all([getSite(), getGive()]);
   const ministries = give.ministries.items.filter(m => m.name);
+  // With the form on the page, "Give online" jumps to it instead of leaving the site.
+  const embed = give.online.show && !!site.links.breeze;
   const questions = <p style={{ margin: '32px 0 0', fontSize: 16, lineHeight: 1.6, color: 'var(--lcc-ink-2)' }}>
     Questions about giving? <Link href="/contact">Email the office</Link> — a real person will answer.
   </p>;
@@ -20,11 +23,14 @@ export default async function GivePage() {
   return <>
     <PageHero tone="sand" facets="soft" facetOpacity={0.6} eyebrow={give.hero.eyebrow} title={give.hero.title} lede={<Rich text={give.hero.lede} />}>
       <div className="lcc-actions">
-        <PendingLinkButton variant="secondary" icon="heart-handshake" href={site.links.breeze || undefined}
+        <PendingLinkButton variant="secondary" icon="heart-handshake" href={embed ? '#give-online' : site.links.breeze || undefined}
           fallbackMessage={`Online giving is being set up. Questions? Email ${site.office.email}.`}>Give online</PendingLinkButton>
-        <span className="lcc-hero__note">{give.hero.note}</span>
+        {/* The note describes leaving for Breeze, so it only applies when the form isn't on the page. */}
+        {!embed && give.hero.note && <span className="lcc-hero__note">{give.hero.note}</span>}
       </div>
     </PageHero>
+
+    {embed && <GivingEmbed formUrl={site.links.breeze} eyebrow={give.online.eyebrow} title={give.online.title} lede={give.online.lede} />}
 
     <SectionBand tone="cream" label="Ways to give">
       <div className="lcc-grid" style={{ ['--min' as string]: '280px' }}>

@@ -5,6 +5,12 @@
     "lede": "Giving is simple and secure. If you’re just visiting, please know there’s no expectation to give.",
     "note": "Opens our secure giving page on Breeze"
   },
+  "online": {
+    "show": true,
+    "eyebrow": "Online giving",
+    "title": "Give in a few steps",
+    "lede": "Choose an amount and a fund, then continue. Gifts are processed securely by Breeze, our church’s giving system, so your card details never pass through this website."
+  },
   "cards": [
     {
       "eyebrow": "If you’re visiting",

@@ -151,7 +151,14 @@ const leadershipPage = defineType({
 const givePage = defineType({
   name: 'givePage', title: 'Give', type: 'document', icon: HeartIcon, description: PLACEHOLDER_TIP,
   fields: [
-    group('hero', 'Top of page', [str('eyebrow', 'Small label'), str('title', 'Headline'), txt('lede', 'Intro'), str('note', 'Note beside the button')]),
+    group('hero', 'Top of page', [str('eyebrow', 'Small label'), str('title', 'Headline'), txt('lede', 'Intro'), str('note', 'Note beside the button', { description: 'Only shown when the online giving form below is turned off (then the button opens Breeze in a new tab).' })]),
+    group('online', 'Online giving form', [
+      defineField({ name: 'show', title: 'Show the giving form on this page', type: 'boolean', initialValue: true,
+        description: 'Off: the “Give online” button opens Breeze in a new tab instead.' }),
+      str('eyebrow', 'Small label'),
+      str('title', 'Title'),
+      txt('lede', 'Text'),
+    ], { description: 'Breeze’s own giving form, shown on this page. It uses the Breeze link in Church details → Links. Card details go to Breeze’s payment processor, never through this website.' }),
     cards('cards', 'Cards'),
     group('ministries', 'Missions & ministries we support', [
       str('eyebrow', 'Small label'),
