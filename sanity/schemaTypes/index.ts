@@ -47,7 +47,9 @@ const homePage = defineType({
     hero(),
     card('newHere', '“New here?” card'),
     card('watch', '“Watch this Sunday” card'),
-    group('whoWeAre', 'Who we are', [str('eyebrow', 'Small label'), str('title', 'Title'), txt('lede', 'Text')]),
+    group('whoWeAre', 'Mission section', [str('eyebrow', 'Small label'), str('title', 'Title'), txt('lede', 'Text')], {
+      description: 'The white section below the two cards, with the “What we believe” and “Meet our leaders” links.',
+    }),
     card('give', 'Give section'),
     group('contact', 'Contact section', [str('eyebrow', 'Small label'), str('title', 'Title'), txt('lede', 'Text')]),
   ],
@@ -60,7 +62,7 @@ const visitPage = defineType({
     hero(),
     group('length', 'How long worship lasts (info strip)', [str('title', 'Line 1'), str('detail', 'Line 2')]),
     group('expect', '01 · What to expect on a Sunday', [str('title', 'Section title'), cards('cards', 'Cards')]),
-    group('midweek', '02 · Midweek', [str('title', 'Section title'), rows('items', 'Rows')]),
+    group('midweek', '02 · Midweek gathering', [str('title', 'Section title'), rows('items', 'Rows')]),
     group('form', '03 · Let us know you’re coming', [
       str('title', 'Section title'),
       txt('intro', 'Intro'),
