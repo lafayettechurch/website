@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button, Card, Placeholder, Rich, RuledList, SectionBand } from '@/components/ds';
+import { FundLink } from '@/components/site/FundHint';
 import { GivingEmbed } from '@/components/site/GivingEmbed';
 import { PageHero } from '@/components/site/PageHero';
 import { PendingLinkButton } from '@/components/site/PendingLinkButton';
@@ -16,6 +17,9 @@ export default async function GivePage() {
   const ministries = give.ministries.items.filter(m => m.name);
   // With the form on the page, "Give online" jumps to it instead of leaving the site.
   const embed = give.online.show && !!site.links.breeze;
+  // A ministry that uses the church's main Breeze page jumps to the form above instead of leaving the site.
+  const norm = (u: string) => u.replace(/^https?:\/\//, '').replace(/\/+$/, '').toLowerCase();
+  const usesMainForm = (url: string) => embed && norm(url) === norm(site.links.breeze);
   const questions = <p style={{ margin: '32px 0 0', fontSize: 16, lineHeight: 1.6, color: 'var(--lcc-ink-2)' }}>
     Questions about giving? <Link href="/contact">Email the office</Link> — a real person will answer.
   </p>;
@@ -46,7 +50,9 @@ export default async function GivePage() {
         body: <>
           {m.note && <p style={{ margin: '0 0 8px' }}><Rich text={m.note} /></p>}
           {m.url
-            ? <Button variant="link" href={m.url}>Give to {plain(m.name)}</Button>
+            ? usesMainForm(m.url)
+              ? <FundLink fund={plain(m.name)}>Give to {plain(m.name)}</FundLink>
+              : <Button variant="link" href={m.url}>Give to {plain(m.name)}</Button>
             : <Placeholder>Giving link needed</Placeholder>}
         </>,
       }))} />

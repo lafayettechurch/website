@@ -1,4 +1,5 @@
 import { Eyebrow, Rich, SectionBand } from '@/components/ds';
+import { FundHint } from '@/components/site/FundHint';
 
 /**
  * Breeze's own giving form, embedded in a section of the Give page.
@@ -19,10 +20,13 @@ export function GivingEmbed({ formUrl, eyebrow, title, lede }: { formUrl: string
           <span>Best for signing in or managing a recurring gift.</span>
         </p>
       </div>
-      <div className="lcc-giving__frame">
-        {/* "payment" lets Apple Pay / Google Pay work inside the frame. */}
-        <iframe src={formUrl} title="Give online to Lafayette Church of Christ (secure form by Breeze)"
-          allow="payment" referrerPolicy="strict-origin-when-cross-origin" />
+      <div>
+        <FundHint />
+        <div className="lcc-giving__frame">
+          {/* "payment" lets Apple Pay / Google Pay work inside the frame. */}
+          <iframe src={formUrl} title="Give online to Lafayette Church of Christ (secure form by Breeze)"
+            allow="payment" referrerPolicy="strict-origin-when-cross-origin" />
+        </div>
       </div>
     </div>
   </SectionBand>;

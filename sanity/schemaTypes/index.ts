@@ -172,7 +172,7 @@ const givePage = defineType({
           fields: [
             str('name', 'Name', { required: true }),
             txt('note', 'Short instructions (optional)', { rows: 2, description: 'For example, “Choose Greece/Andrews from the dropdown.”' }),
-            url('url', 'Giving link', { description: 'Where to give. The site shows it as a “Give to …” link.' }),
+            url('url', 'Giving link', { description: 'Where to give. The site shows it as a “Give to …” link. If this is the church’s main Breeze giving link, it jumps to the form on this page and tells people to pick this ministry in the “Give to” dropdown.' }),
           ],
           preview: { select: { title: 'name', subtitle: 'url' } },
         })],

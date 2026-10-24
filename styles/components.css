@@ -355,3 +355,7 @@ select.lcc-input{appearance:none;-webkit-appearance:none;padding-right:40px;back
 @media (min-width:900px){.lcc-giving__frame{height:780px}}
 .lcc-giving__frame iframe{border:0;width:100%;height:100%;display:block}
 #give-online{scroll-margin-top:72px}
+.lcc-fund-hint{display:flex;align-items:flex-start;gap:var(--space-1);margin:0 0 var(--space-2);padding:var(--space-2);border:1px solid var(--lcc-notice-line);border-radius:var(--radius-md);background:var(--lcc-notice);color:var(--lcc-notice-ink);font-size:15px;line-height:1.5}
+.lcc-fund-hint>svg{flex:none;margin-top:3px}
+.lcc-fund-hint>span{flex:1}
+.lcc-fund-hint button{flex:none;width:32px;height:32px;margin:-6px -6px -6px 0;display:grid;place-items:center;border:0;background:transparent;color:var(--lcc-notice-ink);cursor:pointer;border-radius:var(--radius-sm)}
